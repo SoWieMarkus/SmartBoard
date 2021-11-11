@@ -13,7 +13,7 @@ export default {
   float: right;
   background-color: green;
   width: 25%;
-  min-height: 50%;
-  height: 50%
+  min-height: 60%;
+  height: 60%
 }
 </style>

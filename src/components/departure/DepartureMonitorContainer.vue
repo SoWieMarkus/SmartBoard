@@ -1,7 +1,7 @@
 <template>
   <div id="departureMonitorContent">
-    <h1>{{ title }}</h1>
-    <div style="overflow: auto; height: 100%">
+    <span>{{ title }}</span>
+    <div style="overflow: auto;">
       ::-webkit-scrollbar {
       width: 10px;
       }
@@ -141,9 +141,8 @@ export default {
 <style scoped>
 #departureMonitorContent {
   background-color: #F52887;
+  min-height: 50%;
   height: 50%;
 }
-h1 {
-  margin: 0;
-}
+
 </style>

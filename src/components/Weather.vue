@@ -22,7 +22,7 @@ export default {
   float: right;
   background-color: yellow;
   width: 25%;
-  min-height: 50%;
-  height: 50%
+  min-height: 40%;
+  height: 40%
 }
 </style>

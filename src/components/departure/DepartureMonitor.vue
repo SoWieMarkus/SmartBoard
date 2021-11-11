@@ -2,8 +2,6 @@
   <div id="departureMonitor" @click="increment">
     <departure-monitor-container title="Zwinglistraße"></departure-monitor-container>
     <departure-monitor-container title="Schneebergstraße"></departure-monitor-container>
-
-
   </div>
 </template>
 
@@ -13,7 +11,7 @@ import DepartureMonitorContainer from "@/components/departure/DepartureMonitorCo
 
 export default {
   name: "DepartureMonitor",
-  components : {
+  components: {
     DepartureMonitorContainer,
   },
   methods: {
@@ -23,7 +21,7 @@ export default {
     }
   },
   computed: {
-    departures(){
+    departures() {
       console.log(this.$store.state.departures)
       return this.$store.state.departures;
     }
