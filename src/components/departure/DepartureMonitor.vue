@@ -1,7 +1,7 @@
 <template>
-  <div id="departureMonitor" @click="increment">
-    <departure-monitor-container title="Zwinglistraße"></departure-monitor-container>
-    <departure-monitor-container title="Schneebergstraße"></departure-monitor-container>
+  <div id="departureMonitor">
+    <departure-monitor-container title="Zwinglistraße" stopId="33000819"></departure-monitor-container>
+    <departure-monitor-container title="Schneebergstraße" stopId="33000819"></departure-monitor-container>
   </div>
 </template>
 
@@ -14,27 +14,16 @@ export default {
   components: {
     DepartureMonitorContainer,
   },
-  methods: {
-    increment() {
-      this.$store.commit('increment')
-      console.log(this.$store.state.count)
-    }
-  },
-  computed: {
-    departures() {
-      console.log(this.$store.state.departures)
-      return this.$store.state.departures;
-    }
-  }
 }
 </script>
 
 <style scoped>
 #departureMonitor {
   float: left;
-  background: red;
+  background: #1f1f1f;
   width: 25%;
   min-height: 100%;
-  height: 100%
+  height: 100%;
+  color: #fcba03;
 }
 </style>

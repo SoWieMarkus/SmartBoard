@@ -11,6 +11,12 @@ export const store = new Vuex.Store({
     },
     mutations: {
 
+    },
+    getters:{
+        getDepartures : (state) => {
+            return state.departureMonitor;
+        }
+
     }
 })
 

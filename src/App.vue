@@ -65,6 +65,5 @@ html, body {
 div {
   height: 100%;
   width: 100%;
-  background: #F52887;
 }
 </style>
