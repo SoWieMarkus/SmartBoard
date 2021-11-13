@@ -10,7 +10,7 @@
 <script>
 
 import DepartureMonitor from "@/components/departure/DepartureMonitor.vue"
-import Weather from "@/components/Weather";
+import Weather from "@/components/weather/Weather";
 import Notes from "@/components/Notes";
 import Route from "@/components/Route";
 
@@ -26,12 +26,19 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+  font-family: 'DVB'; /*a name to be used later*/
+  src: url('assets/fonts/dvb_new_v2.otf'); /*URL to font*/
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
+  background: black;
   margin-top: 60px;
 }
 

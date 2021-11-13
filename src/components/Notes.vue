@@ -1,5 +1,5 @@
 <template>
-  <div id="notes"></div>
+  <div id="notes">SPOTIFY</div>
 </template>
 
 <script>
@@ -11,7 +11,7 @@ export default {
 <style scoped>
 #notes {
   float: right;
-  background-color: green;
+  background: black;
   width: 25%;
   min-height: 60%;
   height: 60%

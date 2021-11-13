@@ -1,7 +1,7 @@
 <template>
   <div id="departureMonitor">
-    <departure-monitor-container title="Zwinglistraße" stopId="33000819"></departure-monitor-container>
     <departure-monitor-container title="Schneebergstraße" stopId="33000819"></departure-monitor-container>
+    <departure-monitor-container title="Zwinglistraße" stopId="33000084"></departure-monitor-container>
   </div>
 </template>
 

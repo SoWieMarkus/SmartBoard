@@ -11,7 +11,7 @@ export default {
 <style scoped>
 #route {
   float: left;
-  background: blue;
+  background: black;
   width: 50%;
   min-height: 100%
 }

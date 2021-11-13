@@ -1,9 +1,10 @@
 <template>
   <div id="departureMonitorContent">
-    <span>{{ title }}</span>
-    <div style="overflow: auto; height: 95%;">
+    <span class="title"><strong>{{ title }}</strong></span>
+    <div style="overflow: auto; height: 85%; width:96%; margin:2%;background: #1f1f1f">
       <template v-for="departure in departures">
-        <departure-monitor-container-content v-bind:key="departure.id" :departure="departure"></departure-monitor-container-content>
+        <departure-monitor-container-content v-bind:key="departure.id"
+                                             :departure="departure"></departure-monitor-container-content>
       </template>
     </div>
   </div>
@@ -21,29 +22,25 @@ export default {
     stopId: String
   },
   computed: {
-    departures(){
-      console.log(this.$store.getters["getDepartures"])
+    departures() {
+      //console.log(this.$store.getters["getDepartures"]);
+      if (this.$store.getters["getDepartures"][this.stopId] === undefined) return [];
       return this.$store.getters["getDepartures"][this.stopId]["Departures"];
     }
   },
   components: {
     DepartureMonitorContainerContent,
   },
-  methods: {
-    loadDeparture() {
-      console.log("Loading departure monitor for: " + this.stopId);
-
-      fetch("https://webapi.vvo-online.de/dm?format=json&stopid=" + this.stopId + "&limit=20")
-          .then(result => result.json())
-          .then(result => {
-            console.log(result);
-            this.$store.state.departureMonitor[this.stopId] = result;
-          })
-    },
-  },
+  methods: {},
   mounted() {
-    this.loadDeparture();
-    this.departures();
+    let store = this.$store;
+    let argumentsForQuery = {id: this.stopId};
+    store.dispatch('loadDepartures', argumentsForQuery)
+
+    this.interval = setInterval(function () {
+      console.log("Updated " + new Date());
+      store.dispatch('loadDepartures', argumentsForQuery);
+    }, 60 * 1000);
   }
 }
 </script>
@@ -52,6 +49,13 @@ export default {
 #departureMonitorContent {
   min-height: 50%;
   height: 50%;
+  background: #fcba03;
+}
+
+.title {
+  font-family: "Arial";
+  font-size: xx-large;
+  color: black
 }
 
 </style>
