@@ -1,7 +1,7 @@
 <template>
   <div>
     <departure-monitor></departure-monitor>
-    <route></route>
+    <clock></clock>
     <weather title="TEST"></weather>
     <notes></notes>
   </div>
@@ -12,14 +12,14 @@
 import DepartureMonitor from "@/components/departure/DepartureMonitor.vue"
 import Weather from "@/components/weather/Weather";
 import Notes from "@/components/Notes";
-import Route from "@/components/Route";
+import Clock from "@/components/Clock";
 
 export default {
   name: 'App',
   components: {
     Weather,
     Notes,
-    Route,
+    Clock,
     DepartureMonitor
   }
 }

@@ -6,12 +6,12 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
         departureMonitor: {
-            "33000819":{},
-            "33000084":{}
+            "33000819": {},
+            "33000084": {}
         },
-        weather: {
-
-        }
+        weather: {},
+        clock: {},
+        spotify: {}
     },
     mutations: {
         updateDepartures(state, data) {
@@ -19,6 +19,9 @@ export const store = new Vuex.Store({
         },
         updateWeather(state, data) {
             this.state.weather = data;
+        },
+        updateClock() {
+            this.state.clock = new Date();
         }
     },
     getters: {
@@ -27,6 +30,9 @@ export const store = new Vuex.Store({
         },
         getWeather: (state) => {
             return state.weather;
+        },
+        getClock: (state) => {
+            return state.clock;
         }
     },
     actions: {
@@ -39,14 +45,31 @@ export const store = new Vuex.Store({
 
                 })
         },
-        loadWeather({commit}){
-            fetch("https://api.openweathermap.org/data/2.5/weather?q=Dresden,01277&units=metric&appid=2400f20216f0b21c68542ce58429ed51")
+        loadWeather({commit}) {
+            fetch("http://localhost:1108/weather")
                 .then(result => result.json())
                 .then(result => {
                     console.log(result);
                     commit("updateWeather", result);
                 })
+        },
+        loadSpotify() {
+            let header = {
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": ""
+                }
+            }
+
+            fetch("https://api.spotify.com/v1/me/player/currently-playing?market=ES", header)
+                .then(result => result.json())
+                .then(result => {
+                    console.log(result);
+                })
         }
+
+
     }
 })
 
